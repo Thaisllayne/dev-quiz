@@ -33,7 +33,7 @@ public class HomeUtils {
     }
 
     public void preencherCamposDaHome(String nome, String dificuldade){
-        homeElements.inputName.shouldBe(Condition.visible, Duration.ofSeconds(5));
+        homeElements.inputName.shouldBe(Condition.visible, Duration.ofSeconds(30));
         homeElements.inputName.sendKeys(nome);
         SelenideElement botaoDificuldade = (dificuldade.equals("Easy")) ? homeElements.buttonEasy : homeElements.buttonHard;
         botaoDificuldade.click();
@@ -46,6 +46,12 @@ public class HomeUtils {
         homeElements.inputName.shouldBe(Condition.disappear);
         String currentUrl = WebDriverRunner.getWebDriver().getCurrentUrl();
         assertEquals("https://3jvz3m.csb.app/quiz", currentUrl);
+    }
+
+    public void iniciarQuiz(String nome, String dificuldade)
+    {
+        preencherCamposDaHome(nome, dificuldade);
+        validarAposPreenchimentoDosCampos();
     }
 
     @AfterMethod

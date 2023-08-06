@@ -7,6 +7,9 @@ import elements.QuizElements;
 import org.testng.Assert;
 
 import java.time.Duration;
+import java.util.Random;
+
+import static com.codeborne.selenide.Selenide.$;
 
 public class QuizUtils extends HomeUtils {
 
@@ -14,8 +17,13 @@ public class QuizUtils extends HomeUtils {
 
     public void responderQuestao(){
         ElementsCollection answers = quizElements.answers;
+        int quantidadeDeAlternativas = answers.size();
+
         for(SelenideElement answer: answers){
-            answer.click();
+            Random random = new Random();
+            int alternativaSelecionada = random.nextInt(quantidadeDeAlternativas) + 1;
+            SelenideElement alternativa = $("#root > div > main > ul li:nth-child(" +alternativaSelecionada+ ") > label > input[type=radio]");
+            alternativa.click();
         }
 
         quizElements.buttonNext.shouldBe(Condition.enabled, Duration.ofSeconds(5));

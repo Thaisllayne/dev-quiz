@@ -17,7 +17,7 @@ public class QuizTest extends QuizUtils{
 
     @Test
     public void responderQuiz(){
-        homeUtils.iniciarQuiz("thasdas", "Easy");
+        homeUtils.iniciarQuiz("thasdas", "Hard");
 
         responderTodasAsQuestoes();
         responderQuestao(); //última questão - não vai cair na validação das demais

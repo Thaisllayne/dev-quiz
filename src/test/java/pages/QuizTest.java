@@ -20,7 +20,7 @@ public class QuizTest extends QuizUtils{
         homeUtils.iniciarQuiz("thasdas", "Easy");
 
         responderTodasAsQuestoes();
-        responderQuestao(); // última questão - não vai cair na validação das demais
+        responderQuestao(); //última questão - não vai cair na validação das demais
 
         String currentUrl = WebDriverRunner.getWebDriver().getCurrentUrl();
         assertEquals("https://3jvz3m.csb.app/result", currentUrl);

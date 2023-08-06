@@ -1,13 +1,12 @@
 package pages;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.WebDriverRunner;
 import elements.HomeElements;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.HomeUtils;
 
-import static org.testng.Assert.assertEquals;
+import java.time.Duration;
 
 public class HomeTest extends HomeUtils {
 
@@ -16,23 +15,13 @@ public class HomeTest extends HomeUtils {
     @Test
     public void iniciarOQuizEasy(){
         preencherCamposDaHome("Thais", "Easy");
-        homeElements.buttonStart.should(Condition.enabled);
-        homeElements.buttonStart.click();
-
-        homeElements.inputName.shouldBe(Condition.disappear);
-        String currentUrl = WebDriverRunner.getWebDriver().getCurrentUrl();
-        assertEquals("https://3jvz3m.csb.app/quiz", currentUrl);
+        validarAposPreenchimentoDosCampos();
     }
 
     @Test
     public void iniciarOQuizHard(){
         preencherCamposDaHome("Thais", "Hard");
-        homeElements.buttonStart.should(Condition.enabled);
-        homeElements.buttonStart.click();
-
-        homeElements.inputName.shouldBe(Condition.disappear);
-        String currentUrl = WebDriverRunner.getWebDriver().getCurrentUrl();
-        assertEquals("https://3jvz3m.csb.app/quiz", currentUrl);
+        validarAposPreenchimentoDosCampos();
     }
 
     @Test
@@ -43,7 +32,7 @@ public class HomeTest extends HomeUtils {
         int totalCaracteresInformado = nomeInformado.length();
 
         Assert.assertTrue(totalCaracteresInformado <= maxTamanhoCampoInformado);
-        homeElements.buttonStart.shouldBe(Condition.enabled);
+        homeElements.buttonStart.shouldBe(Condition.enabled, Duration.ofSeconds(5));
     }
 
     @Test
@@ -54,8 +43,6 @@ public class HomeTest extends HomeUtils {
         int totalCaracteresInformado = nomeInformado.length();
 
         Assert.assertFalse(totalCaracteresInformado <= maxTamanhoCampoInformado);
-        homeElements.buttonStart.shouldBe(Condition.disabled);
+        homeElements.buttonStart.shouldBe(Condition.disabled, Duration.ofSeconds(5));
     }
-
-
 }

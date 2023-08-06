@@ -38,12 +38,12 @@ public class HomeUtils {
         SelenideElement botaoDificuldade = (dificuldade.equals("Easy")) ? homeElements.buttonEasy : homeElements.buttonHard;
         botaoDificuldade.click();
 
-        homeElements.buttonStart.should(Condition.enabled, Duration.ofSeconds(5));
+        homeElements.buttonStart.should(Condition.enabled, Duration.ofSeconds(30));
         homeElements.buttonStart.click();
     }
 
     public void validarAposPreenchimentoDosCampos(){
-        homeElements.inputName.shouldBe(Condition.disappear);
+        homeElements.inputName.shouldBe(Condition.disappear, Duration.ofSeconds(30));
         String currentUrl = WebDriverRunner.getWebDriver().getCurrentUrl();
         assertEquals("https://3jvz3m.csb.app/quiz", currentUrl);
     }

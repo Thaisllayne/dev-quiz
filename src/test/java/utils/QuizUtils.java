@@ -45,9 +45,7 @@ public class QuizUtils extends HomeUtils {
         }
     }
     public void finalizarQuiz(){
+        responderTodasAsQuestoes();
         responderQuestao();
     }
-
-
-
 }

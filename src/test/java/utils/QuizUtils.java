@@ -37,4 +37,17 @@ public class QuizUtils extends HomeUtils {
         Assert.assertEquals(currentQuestion, lastQuestionAnswered);
     }
 
+    public void responderTodasAsQuestoes(){
+        for (int questionNumber = 1; questionNumber < 10; questionNumber++){
+            String getLastQuestionDescription = quizElements.questionDescription.getText();
+            responderQuestao();
+            validarAposResponderQuestao(getLastQuestionDescription);
+        }
+    }
+    public void finalizarQuiz(){
+        responderQuestao();
+    }
+
+
+
 }

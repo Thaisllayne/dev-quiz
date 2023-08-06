@@ -19,12 +19,8 @@ public class QuizTest extends QuizUtils{
     public void responderQuiz(){
         homeUtils.iniciarQuiz("thasdas", "Easy");
 
-        for (int questionNumber = 1; questionNumber < 10; questionNumber++){
-            String getLastQuestionDescription = quizElements.questionDescription.getText();
-            responderQuestao();
-            validarAposResponderQuestao(getLastQuestionDescription);
-        }
-        responderQuestao();
+        responderTodasAsQuestoes();
+        responderQuestao(); // última questão - não vai cair na validação das demais
 
         String currentUrl = WebDriverRunner.getWebDriver().getCurrentUrl();
         assertEquals("https://3jvz3m.csb.app/result", currentUrl);

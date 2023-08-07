@@ -10,4 +10,6 @@ public class ResultElements {
 
     public ElementsCollection table = $$("#root > div > main > table > tbody tr");
     public SelenideElement totalHits = $("#root > div > main > table > tfoot > tr > td:nth-child(4)");
+
+    public SelenideElement buttonRestart = $("#root > div > button");
 }

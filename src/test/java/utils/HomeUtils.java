@@ -29,6 +29,7 @@ public class HomeUtils {
     }
 
     public void preencherCamposDaHome(String nome){
+        homeElements.inputName.shouldBe(Condition.visible, Duration.ofSeconds(30));
         homeElements.inputName.sendKeys(nome);
     }
 

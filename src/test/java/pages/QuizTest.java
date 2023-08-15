@@ -1,12 +1,17 @@
 package pages;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 import elements.QuizElements;
 import org.testng.annotations.Test;
 import utils.HomeUtils;
 import utils.QuizUtils;
 
+import java.util.Random;
+
+import static com.codeborne.selenide.Selenide.$;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
@@ -28,7 +33,7 @@ public class QuizTest extends QuizUtils{
 
     @Test
     public void validarNenhumaOpcaoSelecionada(){
-        iniciarQuiz("thais", "Hard");
+        homeUtils.iniciarQuiz("thais", "Hard");
         quizElements.buttonNext.shouldBe(Condition.disabled);
 
         assertTrue(quizElements.buttonNext.is(Condition.disabled));

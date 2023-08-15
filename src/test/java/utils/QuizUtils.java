@@ -7,6 +7,7 @@ import elements.QuizElements;
 import org.testng.Assert;
 
 import java.time.Duration;
+import java.util.Objects;
 import java.util.Random;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -25,6 +26,9 @@ public class QuizUtils extends HomeUtils {
             SelenideElement alternativa = $("#root > div > main > ul li:nth-child(" +alternativaSelecionada+ ") > label > input[type=radio]");
             alternativa.click();
         }
+
+        String alternativasCorretas = quizElements.valueCorrectQuestion.getValue();
+        System.out.println("Alternativa correta: " + alternativasCorretas);
 
         quizElements.buttonNext.shouldBe(Condition.enabled, Duration.ofSeconds(5));
         quizElements.buttonNext.click();
@@ -52,6 +56,7 @@ public class QuizUtils extends HomeUtils {
             validarAposResponderQuestao(getLastQuestionDescription);
         }
     }
+
     public void finalizarQuiz(){
         responderTodasAsQuestoes();
         responderQuestao();

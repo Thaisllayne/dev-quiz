@@ -13,4 +13,6 @@ public class QuizElements {
     public SelenideElement buttonNext = $("#root > div > button");
     public ElementsCollection questionsAnswered = $$("#root > div > div > div.questions-container span.active.question");
     public SelenideElement currentQuestion = $("#root > div > div > div.questions-container span.active.last");
+
+    public SelenideElement valueCorrectQuestion = $("#root > div > main > input[type=hidden]");
 }

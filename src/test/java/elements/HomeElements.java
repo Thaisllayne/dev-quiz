@@ -5,6 +5,8 @@ import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Selenide.$;
 
 public class HomeElements {
+
+    public SelenideElement userName =  $("#root > div > div > div.header-user > h2 > span");
     public SelenideElement inputName = $("#root > div > main > div.block.username > input");
     public SelenideElement buttonEasy = $("#root > div > main > div.block.dificulty > div > button:nth-child(1)");
     public SelenideElement buttonHard = $("#root > div > main > div.block.dificulty > div > button:nth-child(2)");

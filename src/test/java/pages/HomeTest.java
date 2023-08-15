@@ -45,4 +45,13 @@ public class HomeTest extends HomeUtils {
         Assert.assertFalse(totalCaracteresInformado <= maxTamanhoCampoInformado);
         homeElements.buttonStart.shouldBe(Condition.disabled, Duration.ofSeconds(5));
     }
+
+    @Test
+    public void verificarNomeInformadoNoCampoUser(){
+        String nomeInformado = "Thais";
+        preencherCamposDaHome(nomeInformado);
+        String nomeExibidoNoUser = homeElements.userName.getText();
+
+        Assert.assertEquals(nomeInformado, nomeExibidoNoUser);
+    }
 }
